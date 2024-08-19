@@ -10,9 +10,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
+import APIService from 'src/services/APIService';
+
+const API = new APIService();
+
+onMounted(async () => {
+  try {
+    const response = await API.get(
+      '/v1/gifs/trending?api_key=Ibyf64xoQQo6sUoTg2QbxMQI4MG5zrR4&limit=25&offset=0&rating=g&bundle=messaging_non_clips'
+    );
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 defineOptions({
   name: 'IndexPage',
