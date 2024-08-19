@@ -1,5 +1,5 @@
 <template>
-  <q-item clickable tag="a" target="_blank" :href="link" class="my-6 text-xl">
+  <q-item clickable tag="a" :href="link" class="my-6 text-xl">
     <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>

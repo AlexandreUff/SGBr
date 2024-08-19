@@ -36,6 +36,7 @@
 
     <q-page-container>
       <router-view />
+      <!-- <slot /> -->
     </q-page-container>
   </q-layout>
 </template>
@@ -54,23 +55,23 @@ const linksList: EssentialLinkProps[] = [
   {
     title: 'Home',
     icon: 'house',
-    link: 'https://quasar.dev',
+    link: '/#/',
   },
   {
     title: 'Favoritos',
     icon: 'star',
-    link: 'https://github.com/quasarframework',
+    link: '/#/favorites',
   },
   {
     title: 'Categorias',
     icon: 'category',
-    link: 'https://chat.quasar.dev',
+    link: '/#/categories',
   },
   {
     title: 'Sobre',
     // caption: 'forum.quasar.dev',
     icon: 'person',
-    link: 'https://forum.quasar.dev',
+    link: '/#/about',
   },
 ];
 
