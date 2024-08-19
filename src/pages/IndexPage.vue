@@ -1,19 +1,11 @@
 <template>
   <q-page class="row items-center justify-evenly bg-red-600">
-    <!-- <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component> -->
-
     <ul class="row items-center justify-evenly bg-blue-600 pt-4">
       <li
         v-for="fixedGIF in fixedGIFs"
         :key="fixedGIF.id"
         class="py-2 px-1 shadow-2xl"
       >
-        <!-- {{ fixedGIF.image }} -->
         <q-img :src="fixedGIF.image" style="width: 200px; height: 200px" />
       </li>
     </ul>
@@ -21,14 +13,12 @@
 </template>
 
 <script setup lang="ts">
-import { /* ref, */ onMounted, Ref } from 'vue';
-// import { Todo, Meta } from 'components/models';
-// import ExampleComponent from 'components/ExampleComponent.vue';
+import { onMounted, ref } from 'vue';
 import APIService from 'src/services/APIService';
 
 const API = new APIService();
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-let fixedGIFs: Ref<any>;
+const fixedGIFs = ref<{ id: string; image: string }[]>([]);
 
 onMounted(async () => {
   try {
@@ -37,8 +27,7 @@ onMounted(async () => {
     );
     console.log(response.data);
 
-    fixedGIFs =
-      /* ref( */
+    fixedGIFs.value =
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       response.data.data.map((gifsData: any) => {
         return {
@@ -46,7 +35,6 @@ onMounted(async () => {
           image: gifsData.images.fixed_height.url,
         };
       });
-    /* ); */
 
     console.log('GIFs:', fixedGIFs);
   } catch (error) {
@@ -57,31 +45,4 @@ onMounted(async () => {
 defineOptions({
   name: 'IndexPage',
 });
-
-/* const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1',
-  },
-  {
-    id: 2,
-    content: 'ct2',
-  },
-  {
-    id: 3,
-    content: 'ct3',
-  },
-  {
-    id: 4,
-    content: 'ct4',
-  },
-  {
-    id: 5,
-    content: 'ct5',
-  },
-]);
-
-const meta = ref<Meta>({
-  totalCount: 1200,
-}); */
 </script>
