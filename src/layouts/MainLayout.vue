@@ -23,10 +23,9 @@
       show-if-above
       bordered
       :breakpoint="1038"
+      class="my-3"
     >
       <q-list>
-        <q-item-label header> Essential Links </q-item-label>
-
         <EssentialLink
           v-for="link in linksList"
           :key="link.title"
@@ -53,30 +52,27 @@ defineOptions({
 
 const linksList: EssentialLinkProps[] = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
+    title: 'Home',
+    icon: 'house',
     link: 'https://quasar.dev',
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
+    title: 'Favoritos',
+    icon: 'star',
     link: 'https://github.com/quasarframework',
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
+    title: 'Categorias',
+    icon: 'category',
     link: 'https://chat.quasar.dev',
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
+    title: 'Sobre',
+    // caption: 'forum.quasar.dev',
+    icon: 'person',
     link: 'https://forum.quasar.dev',
   },
-  {
+  /* {
     title: 'Twitter',
     caption: '@quasarframework',
     icon: 'rss_feed',
@@ -93,7 +89,7 @@ const linksList: EssentialLinkProps[] = [
     caption: 'Community Quasar projects',
     icon: 'favorite',
     link: 'https://awesome.quasar.dev',
-  },
+  }, */
 ];
 
 const leftDrawerOpen = ref(false);
