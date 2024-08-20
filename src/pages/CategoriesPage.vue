@@ -5,23 +5,29 @@
       <li
         v-for="category in categoriesNames"
         :key="category.encoded"
-        class="text-lg m-1 px-4 p-2 rounded-2xl bg-red-600"
+        class="text-lg m-1 px-4 p-2 rounded-2xl bg-red-600 cursor-pointer"
         @click="() => updateCategorySelected(category.name)"
       >
         {{ category.name }}
       </li>
     </ul>
+    <q-layout>
+      <h3 class="text-center text-lg">{{ categorySelected }}</h3>
+      <GIFCardsRender :GIFsDatas="fixedGIFs" />
+    </q-layout>
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import APIService from 'src/services/APIService';
+import GIFCardsRender from 'src/components/GIFCardsRender.vue';
 
 const API = new APIService();
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const categoriesNames = ref<{ name: string; encoded: string }[]>([]);
-const categorySelected = ref('');
+const categorySelected = ref<string>('');
+const fixedGIFs = ref<{ id: string; image: string }[]>([]);
 
 onMounted(async () => {
   try {
@@ -46,8 +52,28 @@ defineOptions({
   name: 'categoriesPage',
 });
 
-const updateCategorySelected = (newCategoryName: string) => {
+const updateCategorySelected = async (newCategoryName: string) => {
   categorySelected.value = newCategoryName;
   console.log(categorySelected.value);
+
+  try {
+    const response = await API.get(
+      `/v1/gifs/search?api_key=Ibyf64xoQQo6sUoTg2QbxMQI4MG5zrR4&q=${newCategoryName}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`
+    );
+    console.log(response.data);
+
+    fixedGIFs.value =
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      response.data.data.map((gifsData: any) => {
+        return {
+          id: gifsData.id,
+          image: gifsData.images.fixed_height.url,
+        };
+      });
+
+    console.log('GIFs:', fixedGIFs);
+  } catch (error) {
+    console.error(error);
+  }
 };
 </script>
