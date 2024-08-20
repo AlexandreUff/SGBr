@@ -31,7 +31,8 @@
         resultado final.
       </q-p>
       <q-p class="block text-slate-300 pb-8 text-xl">
-        Caso queira me conhecer mais, acesse meu site de apresentação:
+        Caso queira me conhecer mais, acesse meu site de apresentação e
+        portfólio:
       </q-p>
       <q-p class="block text-[#AE445A] pb-8 text-xl">
         <a
