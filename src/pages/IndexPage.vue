@@ -8,7 +8,7 @@
       >
         <QCard
           class="flex absolute top-3 right-2 z-10 bg-neutral-50 opacity-30 rounded-2xl p-1 cursor-pointer"
-          title="Marcar como favorito"
+          title="Adicionar aos favoritos"
         >
           <q-icon name="star" />
         </QCard>
