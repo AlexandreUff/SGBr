@@ -22,8 +22,9 @@
         Ressalto que este é o 2º projeto na vida que crio usando Vue.Js e a
         primeira vez com o Quasar o qual, até este momento, nunca tinha sequer
         ouvido falar. Para além disso, eu tive um prazo ainda menor que o
-        requerido em virtude de compromissos inadiáveis neste último final de
-        semana. Iniciei no dia de ontem, 19/08, segunda-feira.
+        requerido em virtude de compromissos pessoais inadiáveis neste último
+        final de semana. Iniciei no dia 19/08, segunda-feira, com o prazo para
+        às 23h59 do dia 20/08, terça-feira.
       </q-p>
       <q-p class="block text-slate-300 pb-8 text-xl">
         Não é o tipo de coisa que eu costumo expor, mas espero que considere
