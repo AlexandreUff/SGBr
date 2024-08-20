@@ -15,7 +15,7 @@
           title="Pesquisar"
           @click="() => updateCategorySelected(searchText)"
         >
-          <q-icon name="search" size="lg" />
+          <q-icon name="search" size="lg" class="text-slate-300" />
         </QCard>
       </div>
       <GIFCardsRender :GIFsDatas="fixedGIFs" />
