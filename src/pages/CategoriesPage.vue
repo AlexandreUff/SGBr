@@ -1,12 +1,16 @@
 <template>
   <q-page class="bg-[#451952] flex justify-center pt-8">
-    <q-layout class="max-w-5xl">
+    <q-layout class="max-w-5xl px-2">
       <h2 class="text-lg text-[#F39F5A] font-bold">CATEGORIAS</h2>
       <ul class="row items-center justify-evenly pt-4">
         <li
           v-for="category in categoriesNames"
           :key="category.encoded"
-          class="text-lg m-1 px-4 p-2 rounded-2xl bg-[#AE445A] cursor-pointer"
+          class="text-lg m-1 px-4 p-2 rounded-2xl bg-[#AE445A] cursor-pointer text-[#451952]"
+          :style="{
+            backgroundColor:
+              category.name === categorySelected ? '#F39F5A' : '#AE445A',
+          }"
           @click="() => updateCategorySelected(category.name)"
         >
           {{ category.name }}
