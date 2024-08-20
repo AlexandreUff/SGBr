@@ -14,7 +14,10 @@
 
         <q-toolbar-title> Quasar App </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div class="flex align-middle justify-center text-lg">
+          <q-icon name="person" class="mt-1 mx-2" />
+          Alexandre Magno
+        </div>
       </q-toolbar>
     </q-header>
 

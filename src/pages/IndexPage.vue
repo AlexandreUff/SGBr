@@ -1,6 +1,9 @@
 <template>
-  <q-page class="row items-center justify-evenly bg-[#451952]">
-    <GIFCardsRender :GIFsDatas="fixedGIFs" />
+  <q-page class="row items-center justify-evenly bg-[#451952] pt-8">
+    <q-layout class="max-w-5xl px-2">
+      <h2 class="text-lg text-[#F39F5A] font-bold">PRINCIPAIS GIFs</h2>
+      <GIFCardsRender :GIFsDatas="fixedGIFs" />
+    </q-layout>
   </q-page>
 </template>
 
