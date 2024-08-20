@@ -1,5 +1,10 @@
 <template>
-  <q-item clickable tag="a" :href="link" class="py-6 text-xl">
+  <q-item
+    clickable
+    tag="a"
+    :href="link"
+    class="py-6 pl-12 text-xl text-[#F39F5A]"
+  >
     <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>

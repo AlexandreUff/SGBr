@@ -1,19 +1,23 @@
 <template>
-  <q-page class="bg-red-600">
-    <h2 class="text-center text-lg">CATEGORIAS</h2>
-    <ul class="row items-center justify-evenly bg-blue-600 pt-4">
-      <li
-        v-for="category in categoriesNames"
-        :key="category.encoded"
-        class="text-lg m-1 px-4 p-2 rounded-2xl bg-red-600 cursor-pointer"
-        @click="() => updateCategorySelected(category.name)"
-      >
-        {{ category.name }}
-      </li>
-    </ul>
-    <q-layout>
-      <h3 class="text-center text-lg">{{ categorySelected }}</h3>
-      <GIFCardsRender :GIFsDatas="fixedGIFs" />
+  <q-page class="bg-[#451952] flex justify-center pt-8">
+    <q-layout class="max-w-5xl">
+      <h2 class="text-lg text-[#F39F5A] font-bold">CATEGORIAS</h2>
+      <ul class="row items-center justify-evenly pt-4">
+        <li
+          v-for="category in categoriesNames"
+          :key="category.encoded"
+          class="text-lg m-1 px-4 p-2 rounded-2xl bg-[#AE445A] cursor-pointer"
+          @click="() => updateCategorySelected(category.name)"
+        >
+          {{ category.name }}
+        </li>
+      </ul>
+      <q-layout class="pt-8">
+        <h3 class="text-lg text-[#F39F5A] font-bold text-center">
+          {{ categorySelected }}
+        </h3>
+        <GIFCardsRender :GIFsDatas="fixedGIFs" />
+      </q-layout>
     </q-layout>
   </q-page>
 </template>

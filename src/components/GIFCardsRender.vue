@@ -1,6 +1,6 @@
 <template>
-  <q-page class="row items-center justify-evenly bg-red-600">
-    <ul class="row items-center justify-evenly bg-blue-600 pt-4">
+  <q-page class="row items-center justify-evenly bg-[#451952]">
+    <ul class="row items-center justify-evenly pt-4 max-w-5xl">
       <li
         v-for="fixedGIF in GIFsDatas"
         :key="fixedGIF.id"

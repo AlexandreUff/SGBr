@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row items-center justify-evenly bg-red-600">
+  <q-page class="row items-center justify-evenly bg-[#451952]">
     <GIFCardsRender :GIFsDatas="fixedGIFs" />
   </q-page>
 </template>

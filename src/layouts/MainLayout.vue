@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated class="bg-[#AE445A]">
       <q-toolbar class="py-6">
         <q-btn
           flat
@@ -23,7 +23,7 @@
       show-if-above
       bordered
       :breakpoint="1038"
-      class="my-3"
+      class="py-3 bg-[#662549]"
     >
       <q-list>
         <EssentialLink
