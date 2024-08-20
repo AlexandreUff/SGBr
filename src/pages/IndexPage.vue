@@ -7,11 +7,12 @@
           v-model="searchText"
           label="Digite o nome de algum GIF que queira pesquisar"
           placeholder="Ex: Animais, aniversário, carros..."
-          class="flex-grow bg-[#ffffff80] px-2"
+          class="flex-grow bg-[#ffffff80] px-2 text-2xl"
           label-color="purple"
         />
         <QCard
-          class="flex align-middle justify-center bg-[#AE445A] w-14 pt-2"
+          class="flex align-middle justify-center bg-[#AE445A] w-14 pt-2 cursor-pointer"
+          title="Pesquisar"
           @click="() => updateCategorySelected(searchText)"
         >
           <q-icon name="search" size="lg" />
