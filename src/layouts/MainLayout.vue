@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="bg-[#AE445A]">
-      <q-toolbar class="py-6">
+      <q-toolbar class="flex align-middle justify-between py-6">
         <q-btn
           flat
           dense
@@ -12,7 +12,7 @@
           class="lg:hidden"
         />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-img src="~assets/SGBR-logo.png" width="150px" />
 
         <div class="flex align-middle justify-center text-lg">
           <q-icon name="person" class="mt-1 mx-2" />
