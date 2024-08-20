@@ -6,6 +6,7 @@
         v-for="category in categoriesNames"
         :key="category.encoded"
         class="text-lg m-1 px-4 p-2 rounded-2xl bg-red-600"
+        @click="() => updateCategorySelected(category.name)"
       >
         {{ category.name }}
       </li>
@@ -20,6 +21,7 @@ import APIService from 'src/services/APIService';
 const API = new APIService();
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const categoriesNames = ref<{ name: string; encoded: string }[]>([]);
+const categorySelected = ref('');
 
 onMounted(async () => {
   try {
@@ -41,6 +43,11 @@ onMounted(async () => {
 });
 
 defineOptions({
-  name: 'IndexPage',
+  name: 'categoriesPage',
 });
+
+const updateCategorySelected = (newCategoryName: string) => {
+  categorySelected.value = newCategoryName;
+  console.log(categorySelected.value);
+};
 </script>
