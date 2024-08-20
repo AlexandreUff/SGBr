@@ -1,54 +1,40 @@
 <template>
-  <q-page class="row items-center justify-evenly bg-red-600">
-    <!-- <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component> -->
-
+  <q-page class="bg-red-600">
+    <h2 class="text-center text-lg">CATEGORIAS</h2>
     <ul class="row items-center justify-evenly bg-blue-600 pt-4">
       <li
-        v-for="fixedGIF in fixedGIFs"
-        :key="fixedGIF.id"
-        class="py-2 px-1 shadow-2xl"
+        v-for="category in categoriesNames"
+        :key="category.encoded"
+        class="text-lg m-1 px-4 p-2 rounded-2xl bg-red-600"
       >
-        <!-- {{ fixedGIF.image }} -->
-        <q-img :src="fixedGIF.image" style="width: 200px; height: 200px" />
+        {{ category.name }}
       </li>
     </ul>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { /* ref, */ onMounted, Ref } from 'vue';
-// import { Todo, Meta } from 'components/models';
-// import ExampleComponent from 'components/ExampleComponent.vue';
+import { onMounted, ref } from 'vue';
 import APIService from 'src/services/APIService';
 
 const API = new APIService();
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-let fixedGIFs: Ref<any>;
+const categoriesNames = ref<{ name: string; encoded: string }[]>([]);
 
 onMounted(async () => {
   try {
     const response = await API.get(
-      '/v1/gifs/trending?api_key=Ibyf64xoQQo6sUoTg2QbxMQI4MG5zrR4&limit=25&offset=0&rating=g&bundle=messaging_non_clips'
+      'https://api.giphy.com/v1/gifs/categories?api_key=Ibyf64xoQQo6sUoTg2QbxMQI4MG5zrR4'
     );
     console.log(response.data);
 
-    fixedGIFs =
-      /* ref( */
+    categoriesNames.value =
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       response.data.data.map((gifsData: any) => {
-        return {
-          id: gifsData.id,
-          image: gifsData.images.fixed_height.url,
-        };
+        return { name: gifsData.name, encoded: gifsData.name_encoded };
       });
-    /* ); */
 
-    console.log('GIFs:', fixedGIFs);
+    console.log('Categorias:', categoriesNames);
   } catch (error) {
     console.error(error);
   }
@@ -57,31 +43,4 @@ onMounted(async () => {
 defineOptions({
   name: 'IndexPage',
 });
-
-/* const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1',
-  },
-  {
-    id: 2,
-    content: 'ct2',
-  },
-  {
-    id: 3,
-    content: 'ct3',
-  },
-  {
-    id: 4,
-    content: 'ct4',
-  },
-  {
-    id: 5,
-    content: 'ct5',
-  },
-]);
-
-const meta = ref<Meta>({
-  totalCount: 1200,
-}); */
 </script>
