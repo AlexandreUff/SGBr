@@ -2,7 +2,7 @@
   <q-page class="row items-center justify-evenly bg-red-600">
     <ul class="row items-center justify-evenly bg-blue-600 pt-4">
       <li
-        v-for="fixedGIF in fixedGIFs"
+        v-for="fixedGIF in GIFsDatas"
         :key="fixedGIF.id"
         class="py-2 px-1 shadow-2xl relative"
       >
@@ -19,10 +19,10 @@
 </template>
 
 <script setup lang="ts">
-interface FixedGIF {
+interface GIFProps {
   id: string;
   image: string;
 }
 
-const { fixedGIFs } = defineProps<{ fixedGIFs: FixedGIF[] }>();
+const { GIFsDatas } = defineProps<{ GIFsDatas: GIFProps[] }>();
 </script>

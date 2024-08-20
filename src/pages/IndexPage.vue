@@ -1,6 +1,6 @@
 <template>
   <q-page class="row items-center justify-evenly bg-red-600">
-    <GIFCardsRender :fixedGIFs="fixedGIFs" />
+    <GIFCardsRender :GIFsDatas="fixedGIFs" />
   </q-page>
 </template>
 
