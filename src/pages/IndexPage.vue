@@ -1,8 +1,7 @@
 <template>
   <q-page class="row items-center justify-evenly bg-[#451952] pt-8">
     <q-layout class="max-w-5xl px-2">
-      <!-- <h2 class="text-lg text-[#F39F5A] font-bold">PRINCIPAIS GIFs</h2> -->
-      <div class="flex">
+      <div class="flex pb-4">
         <q-input
           v-model="searchText"
           label="Digite o nome de algum GIF que queira pesquisar"
@@ -18,6 +17,13 @@
           <q-icon name="search" size="lg" class="text-slate-300" />
         </QCard>
       </div>
+      <h2 class="text-lg text-[#F39F5A] font-bold">
+        {{
+          lastSearchResult
+            ? `Exibindo resultados para "${lastSearchResult}"`
+            : 'PRINCIPAIS GIFs'
+        }}
+      </h2>
       <GIFCardsRender :GIFsDatas="fixedGIFs" />
     </q-layout>
   </q-page>
@@ -32,6 +38,7 @@ const API = new APIService();
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fixedGIFs = ref<{ id: string; image: string }[]>([]);
 const searchText = ref<string>('');
+const lastSearchResult = ref<string>('');
 
 onMounted(async () => {
   try {
@@ -56,6 +63,8 @@ onMounted(async () => {
 });
 
 const updateCategorySelected = async (newCategoryName: string) => {
+  lastSearchResult.value = newCategoryName;
+
   try {
     const response = await API.get(
       `/v1/gifs/search?api_key=Ibyf64xoQQo6sUoTg2QbxMQI4MG5zrR4&q=${newCategoryName}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`
